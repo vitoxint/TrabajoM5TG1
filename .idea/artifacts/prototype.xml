@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="prototype">
+    <output-path>$PROJECT_DIR$/out/artifacts/prototype</output-path>
+    <root id="root" />
+  </artifact>
+</component>
