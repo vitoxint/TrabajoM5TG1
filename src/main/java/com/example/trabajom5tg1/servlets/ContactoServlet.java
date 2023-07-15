@@ -30,7 +30,9 @@ public class ContactoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
+        request.setAttribute("seccion","contacto" );
         getServletContext().getRequestDispatcher("/views/contacto.jsp").forward(request , response);
+
     }
 
     /**
@@ -40,7 +42,11 @@ public class ContactoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         String nombre = request.getParameter("nombre");
-        request.setAttribute("respuesta", nombre + " tu formulario ya ha sido enviado , nos contactaremos a la brevedad" );
+        request.setAttribute("respuesta", "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\" id=\"envio_exitoso\" style=\"display: none;\">\n" +
+                        "      <p id=\"message\">" + nombre + " tu formulario ya ha sido enviado , nos contactaremos a la brevedad" +   "</p>\n" +
+                        "      <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\n" +
+                        "    </div>" );
+        //response.getWriter().write(");
         RequestDispatcher rd = request.getRequestDispatcher("/views/contacto.jsp" );
         rd.forward(request, response);
     }
