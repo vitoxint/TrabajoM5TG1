@@ -35,7 +35,7 @@ public class ListarCapacitacion extends HttpServlet{
 
 
         request.setAttribute("seccion","capacitacion" );
-        request.setAttribute("list" , capacitaciones );
+        //request.setAttribute("list" , capacitaciones );
         getServletContext().getRequestDispatcher("/views/capacitacion_listar.jsp").forward(request , response);
     }
 

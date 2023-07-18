@@ -19,7 +19,7 @@ public class IniciarSesion {
                 response.sendRedirect("/inicio");
             } else {
                 //request.setAttribute("error", "Usuario y/o clave equivocada");
-                request.setAttribute("error", "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\" id=\"envio_exitoso\" style=\"display: none;\">\n" +
+                request.setAttribute("error", "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\" id=\"error\" style=\"display: none;\">\n" +
                         "      <p id=\"message\">" + username + " tu usuario y/o contraseña son incorrectas , intente nuevamente. " +   "</p>\n" +
                         "      <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\n" +
                         "    </div>" );

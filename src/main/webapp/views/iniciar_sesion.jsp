@@ -15,7 +15,7 @@
 <body>
 <div class="container">
     <h1>Inicio de sesión</h1>
-    <form action="login.do" method="post">
+    <form action="iniciar-sesion" method="post">
     <div class="form-group">
         <label for="username">Usuario</label>
         <input type="text" name="username" id="username">
@@ -24,9 +24,12 @@
         <label for="password">Contraseña</label>
         <input type="password" name="password" id="password">
     </div>
+        ${ error }
     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
     </form>
 </div>
+
+
 
 <!-- importa Bootstrap -->
 <script
@@ -36,6 +39,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/alertaErrorLogin.js"></script>
 <!-- Importa jquery-->
 </body>
 </html>
