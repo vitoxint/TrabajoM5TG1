@@ -1,5 +1,6 @@
 package com.example.trabajom5tg1.servlets;
 
+import com.example.trabajom5tg1.models.Contenedor;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
