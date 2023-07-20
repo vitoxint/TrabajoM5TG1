@@ -32,7 +32,7 @@
                                 Capacitación
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Listado Capacitación</a></li>
+                                <li><a class="dropdown-item" href="listar-capacitacion">Listado Capacitación</a></li>
                                 <li><a class="dropdown-item" href="crear-capacitacion">Crear Capacitación</a></li>
 
                             </ul>
