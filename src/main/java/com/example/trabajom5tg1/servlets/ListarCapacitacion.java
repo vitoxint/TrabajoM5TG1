@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Servlet implementation class ListarCapacitacion
@@ -37,17 +39,24 @@ public class ListarCapacitacion extends HttpServlet{
         // TODO Auto-generated method stub
 
         HttpSession session = request.getSession();
+
+        if(  session.getAttribute("listaCapacitacion") == null ){
+            session.setAttribute( "listaCapacitacion" , new ArrayList<Capacitacion>());
+        }
+
         Contenedor ct = new Contenedor();
-        Capacitacion c1 = new Capacitacion(1,  "77.589.654-8", "Jueves", "20:00",  "Hotel Ché Ratón", "03:00", 80);
-        Capacitacion c2 = new Capacitacion(2,  "87.659-897-9", "Martes", "16:00",  "GAM", "02:00", 70);
 
-        ct.almacenarCapacitacion(c1);
-        ct.almacenarCapacitacion(c2);
+        List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)session.getAttribute("listaCapacitacion");
 
-        session.setAttribute("lista" , ct.getListCapacitaciones());
+        for (Capacitacion c : capacitaciones
+        ) {
+            ct.almacenarCapacitacion(c);
+        }
+
+        session.setAttribute("listaCapacitacion" , ct.getListCapacitaciones());
 
         request.setAttribute("seccion","capacitacion" );
-        request.setAttribute("lista" , ct.getListCapacitaciones( ) );
+
         getServletContext().getRequestDispatcher("/views/capacitacion_listar.jsp").forward(request , response);
     }
 

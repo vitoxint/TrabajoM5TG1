@@ -1,5 +1,6 @@
 package com.example.trabajom5tg1.servlets;
 
+import com.example.trabajom5tg1.models.Contenedor;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -7,8 +8,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.trabajom5tg1.models.Capacitacion;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CrearCapacitacion
@@ -49,12 +53,27 @@ public class CrearCapacitacion extends HttpServlet {
         String duracion = request.getParameter("duracion");
         int cantAsistentes = Integer.parseInt(request.getParameter("cantAsistentes"));
 
+
         Capacitacion cap = new Capacitacion( numCapacitacion,  rutCliente,  diaSemana,  hora,  lugar,  duracion,  cantAsistentes );
 
-        request.setAttribute("seccion","capacitacion" );
-        request.setAttribute("respuesta", cap.mostrarDetalle() );
-        RequestDispatcher rd = request.getRequestDispatcher("/views/capacitacion_crear.jsp" );
-        rd.forward(request, response);
+        HttpSession session = request.getSession();
+        List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)session.getAttribute("listaCapacitacion");
+        Contenedor ct = new Contenedor();
+
+        for (Capacitacion c : capacitaciones
+             ) {
+            ct.almacenarCapacitacion(c);
+        }
+        ct.almacenarCapacitacion( cap );
+
+        session.setAttribute("listaCapacitacion" , ct.getListCapacitaciones());
+        response.sendRedirect("listar-capacitacion");
+
+        //request.setAttribute("seccion","capacitacion" );
+        //request.setAttribute("respuesta", cap.mostrarDetalle() );
+
+        //RequestDispatcher rd = request.getRequestDispatcher("/views/capacitacion_crear.jsp" );
+        //rd.forward(request, response);
 
 
 
