@@ -25,7 +25,8 @@ public class IniciarSesion extends HttpServlet {
         if (username.equals("admin") && password.equals("1234")) {
             request.getSession().setAttribute("user", username);
             request.getSession().setAttribute("loggedIn", true); // Bandera para indicar que el usuario ha iniciado sesión
-            response.sendRedirect("contacto-servlet");
+            response.sendRedirect(request.getContextPath() + "/contacto-servlet");
+
         } else {
 
     //request.setAttribute("error", "Usuario y/o clave equivocada");
@@ -33,7 +34,7 @@ public class IniciarSesion extends HttpServlet {
                     "      <p id=\"message\">" + username + " tu usuario y/o contraseña son incorrectas , intente nuevamente. " +   "</p>\n" +
                     "      <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\n" +
                     "    </div>" );
-            response.sendRedirect("iniciar-sesion");
+            response.sendRedirect("/iniciar-sesion");
         }
 
     }
