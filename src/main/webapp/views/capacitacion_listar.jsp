@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Capacitaciones</title>
-    <link href="https//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
@@ -25,9 +25,10 @@
 
     <div class="container">
 
-        <h1>Lista de Capacitaciones</h1>
+        <br/>
+        <h3>Lista de Capacitaciones</h3>
 
-        <table id="capacitacion" class="table table-striped" style="width:100%">
+        <table id="table" class="table table-striped" style="width:100%">
             <thead>
             <tr>
                 <th>N° Capacit.</th>
@@ -80,11 +81,8 @@
                 integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
                 crossorigin="anonymous"></script>
         <!-- Importa jquery-->
-        <script
-                src="https://code.jquery.com/jquery-3.7.0.min.js"
-                integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-                crossorigin="anonymous"></script>
-        <!-- Importa dataTables-->
-        <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/datatable.js"></script>
 </body>
 </html>
