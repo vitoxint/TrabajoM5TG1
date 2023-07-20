@@ -36,13 +36,14 @@
                 <th>Hora</th>
                 <th>Duración</th>
                 <th>Lugar</th>
+                <th>Cant. Asistentes</th>
             </tr>
             </thead>
             <tbody>
 
                 <%
 
-                    List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)session.getAttribute("lista");
+                    List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)session.getAttribute("listaCapacitacion");
 
                     for(Capacitacion cap : capacitaciones)
                     {
@@ -52,8 +53,9 @@
                         <td><%= cap.getRutCliente()%></td>
                         <td><%= cap.getDiaSemana()%></td>
                         <td><%= cap.getHora()%></td>
-                        <td><%= cap.getCantAsistentes()%></td>
+                        <td><%= cap.getDuracion()%></td>
                         <td><%= cap.getLugar()%></td>
+                        <td><%= cap.getCantAsistentes()%></td>
 
                     </tr>
 
