@@ -24,7 +24,7 @@ public class IniciarSesion extends HttpServlet {
         String password = request.getParameter("password");
         if (username.equals("admin") && password.equals("1234")){
             request.getSession().setAttribute("user", username);
-            response.sendRedirect("/contacto");
+            response.sendRedirect("contacto-servlet");
         } else {
             //request.setAttribute("error", "Usuario y/o clave equivocada");
             request.setAttribute("error", "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\" id=\"error\" style=\"display: none;\">\n" +
