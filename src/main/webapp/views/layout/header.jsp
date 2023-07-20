@@ -46,16 +46,10 @@
                     </ul>
 
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link ${(seccion == 'login') ? 'active' : 'none'}" href="iniciar-sesion">Iniciar Sesión</a>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav">
                         <!-- Resto de enlaces -->
                         <% if (session.getAttribute("loggedIn") != null && (Boolean) session.getAttribute("loggedIn")) { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cerrar Sesión</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/cerrar-sesion">Cerrar Sesión</a>
                         </li>
                         <% } else { %>
                         <li class="nav-item">
