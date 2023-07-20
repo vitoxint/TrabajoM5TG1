@@ -1,3 +1,4 @@
+<jsp:useBean id="seccion" scope="request" type="java.lang.String"   />
 <%--
   Created by IntelliJ IDEA.
   User: vitox
@@ -6,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 
 <div class="container">
@@ -43,6 +44,26 @@
                         </li>
 
                     </ul>
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link ${(seccion == 'login') ? 'active' : 'none'}" href="iniciar-sesion">Iniciar Sesión</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <!-- Resto de enlaces -->
+                        <% if (session.getAttribute("loggedIn") != null && (Boolean) session.getAttribute("loggedIn")) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cerrar Sesión</a>
+                        </li>
+                        <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link ${(seccion == 'login') ? 'active' : 'none'}" href="iniciar-sesion">Iniciar Sesión</a>
+                        </li>
+                        <% } %>
+                    </ul>
+
                 </div>
             </div>
         </nav>
