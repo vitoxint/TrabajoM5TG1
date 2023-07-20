@@ -32,7 +32,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mb-4 >Inicio de sesión</h1>
+    <h1 class="mb-4" >Inicio de sesión</h1>
     <form action="iniciar-sesion" method="post">
     <div class="input-group mb-3">
         <label class="input-group-text" for="username" id="username_label">Usuario</label>
