@@ -26,6 +26,7 @@ public class IniciarSesion extends HttpServlet {
             request.getSession().setAttribute("user", username);
             request.getSession().setAttribute("loggedIn", true); // Bandera para indicar que el usuario ha iniciado sesión
             response.sendRedirect(request.getContextPath() + "/contacto-servlet");
+
         } else {
 
     //request.setAttribute("error", "Usuario y/o clave equivocada");
