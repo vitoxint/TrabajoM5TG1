@@ -34,7 +34,7 @@ public class IniciarSesion extends HttpServlet {
                     "      <p id=\"message\">" + username + " tu usuario y/o contraseña son incorrectas , intente nuevamente. " +   "</p>\n" +
                     "      <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\n" +
                     "    </div>" );
-            response.sendRedirect("/iniciar-sesion");
+            response.sendRedirect("iniciar-sesion");
         }
 
     }

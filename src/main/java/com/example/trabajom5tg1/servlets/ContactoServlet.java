@@ -34,7 +34,7 @@ public class ContactoServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         if ( session.getAttribute("loggedIn") == null ) {
-            session.setAttribute("loggedIn" , null);
+
             response.sendRedirect("iniciar-sesion");
         }else{
             request.setAttribute("seccion","contacto" );

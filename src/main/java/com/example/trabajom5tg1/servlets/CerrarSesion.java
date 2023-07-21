@@ -14,10 +14,10 @@ public class CerrarSesion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Verificar si el usuario "admin" está autenticado y, si es así, cerrar la sesión
         HttpSession session = request.getSession(false);
-        if (session != null && session.getAttribute("user") != null && session.getAttribute("user").equals("admin")) {
+        if (session != null && session.getAttribute("loggedIn") != null ) {
             session.invalidate(); // Invalidar la sesión
         }
-        response.sendRedirect(request.getContextPath() + "/inicio"); // Redirigir al inicio o a la página de login
+        response.sendRedirect( "inicio"); // Redirigir al inicio o a la página de login
     }
 }
 

@@ -38,12 +38,13 @@ public class CrearCapacitacion extends HttpServlet {
         HttpSession session = request.getSession();
 
         if ( session.getAttribute("loggedIn") == null ) {
-            session.setAttribute("loggedIn", null);
+
             response.sendRedirect("iniciar-sesion");
-            return ;
+
+        }else {
+            request.setAttribute("seccion", "capacitacion");
+            getServletContext().getRequestDispatcher("/views/capacitacion_crear.jsp").forward(request, response);
         }
-        request.setAttribute("seccion","capacitacion" );
-        getServletContext().getRequestDispatcher("/views/capacitacion_crear.jsp").forward(request , response);
     }
 
     /**
