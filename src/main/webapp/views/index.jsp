@@ -23,7 +23,9 @@
 
 <%@include file="layout/header.jsp" %>
 
-
+  <div class="container">
+    <p>loren ipsiunhjdgfhsjdgf fsffffsfssf sfsffsssss sffffffffffffffffffffffffffffffffff</p>
+  </div>
 
 
 <%@include file="layout/footer.jsp" %>

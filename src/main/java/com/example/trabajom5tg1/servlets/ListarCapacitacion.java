@@ -41,29 +41,31 @@ public class ListarCapacitacion extends HttpServlet{
         HttpSession session = request.getSession();
 
         if ( session.getAttribute("loggedIn") == null ) {
-            session.setAttribute("loggedIn", null);
+
             response.sendRedirect("iniciar-sesion");
-            return ;
+
+        }else {
+
+            if (session.getAttribute("listaCapacitacion") == null) {
+                session.setAttribute("listaCapacitacion", new ArrayList<Capacitacion>());
+            }
+
+            Contenedor ct = new Contenedor();
+
+            List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>) session.getAttribute("listaCapacitacion");
+
+            for (Capacitacion c : capacitaciones
+            ) {
+                ct.almacenarCapacitacion(c);
+            }
+
+            session.setAttribute("listaCapacitacion", ct.getListCapacitaciones());
+
+            request.setAttribute("seccion", "capacitacion");
+
+            getServletContext().getRequestDispatcher("/views/capacitacion_listar.jsp").forward(request, response);
+
         }
-
-        if(  session.getAttribute("listaCapacitacion") == null ){
-            session.setAttribute( "listaCapacitacion" , new ArrayList<Capacitacion>());
-        }
-
-        Contenedor ct = new Contenedor();
-
-        List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)session.getAttribute("listaCapacitacion");
-
-        for (Capacitacion c : capacitaciones
-        ) {
-            ct.almacenarCapacitacion(c);
-        }
-
-        session.setAttribute("listaCapacitacion" , ct.getListCapacitaciones());
-
-        request.setAttribute("seccion","capacitacion" );
-
-        getServletContext().getRequestDispatcher("/views/capacitacion_listar.jsp").forward(request , response);
     }
 
     /**

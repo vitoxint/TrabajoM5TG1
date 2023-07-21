@@ -49,7 +49,11 @@
                         <!-- Resto de enlaces -->
                         <% if (session.getAttribute("loggedIn") != null && (Boolean) session.getAttribute("loggedIn")) { %>
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/cerrar-sesion">Cerrar Sesión</a>
+                            <!--<a class="nav-link" methods="post"  href="${pageContext.request.contextPath}/cerrar-sesion">Cerrar Sesión</a>-->
+                            <form id="GFG" action="${pageContext.request.contextPath}/cerrar-sesion" method="POST">
+                                <button class="btn btn-danger btn-sm" type="submit">Salir</button>
+                            </form>
+
                         </li>
                         <% } else { %>
                         <li class="nav-item">
