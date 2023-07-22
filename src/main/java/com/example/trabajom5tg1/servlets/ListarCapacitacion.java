@@ -1,5 +1,7 @@
 package com.example.trabajom5tg1.servlets;
 
+import com.example.trabajom5tg1.dao.CapacitacionDAOImp;
+import com.example.trabajom5tg1.idao.CapacitacionDAO;
 import com.example.trabajom5tg1.models.Capacitacion;
 import com.example.trabajom5tg1.models.Contenedor;
 import jakarta.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +49,7 @@ public class ListarCapacitacion extends HttpServlet{
 
         }else {
 
-            if (session.getAttribute("listaCapacitacion") == null) {
+            /*if (session.getAttribute("listaCapacitacion") == null) {
                 session.setAttribute("listaCapacitacion", new ArrayList<Capacitacion>());
             }
 
@@ -57,9 +60,17 @@ public class ListarCapacitacion extends HttpServlet{
             for (Capacitacion c : capacitaciones
             ) {
                 ct.almacenarCapacitacion(c);
-            }
+            }*/
 
-            session.setAttribute("listaCapacitacion", ct.getListCapacitaciones());
+            CapacitacionDAOImp capacitacionDAO = new CapacitacionDAOImp();
+            PrintWriter out = response.getWriter();
+
+            List<Capacitacion> listado = capacitacionDAO.listarCapacitaciones();
+            if(!listado.isEmpty()){
+                out.println("Capacitaciones listadas");
+                request.setAttribute("listaCapacitacion",listado);
+                request.getRequestDispatcher("listado.jsp").forward(request,response);
+            }
 
             request.setAttribute("seccion", "capacitacion");
 
@@ -74,7 +85,7 @@ public class ListarCapacitacion extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
 
-        int numCapacitacion = Integer.parseInt(request.getParameter("numCapacitacion")) ;
+        /*int numCapacitacion = Integer.parseInt(request.getParameter("numCapacitacion")) ;
         String rutCliente = request.getParameter("rutCliente");
         String diaSemana = request.getParameter("diaSemana");
         String hora = request.getParameter("hora");
@@ -87,7 +98,7 @@ public class ListarCapacitacion extends HttpServlet{
         request.setAttribute("seccion","capacitacion" );
         request.setAttribute("respuesta", cap.mostrarDetalle() );
         RequestDispatcher rd = request.getRequestDispatcher("/views/capacitacion_crear.jsp" );
-        rd.forward(request, response);
+        rd.forward(request, response);*/
 
 
 

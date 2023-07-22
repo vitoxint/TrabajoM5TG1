@@ -28,7 +28,7 @@
   <section>
     <p align="center">
       <marquee behavior="scroll" direction="left">
-        Somos la principal empresa de capacitación en seguridad en Chile
+        Comunícate con nosotros y te responderemos a la brevedad
       </marquee>
     </p>
     <h2 align="center">
