@@ -111,6 +111,7 @@
 </head>
 <body id="top">
 <%@include file="layout/header.jsp" %>
+<div class="container">
 <div id="content">
   <div class="banner">
     <div class="container">
@@ -545,24 +546,11 @@
           <li><a href="#">Ethics & Compliance</a></li>
         </ul>
       </div>
-      <div class="grid_3">
-        <a href="#" class="logo1"><img src="images/logo_min.png" alt=""></a>
-        <p class="add_txt">Quisque nulla. Vestiero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiarsus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultricposuere cubilia Curae; Suspendisse sollicitudin velit s pharetra augue n augue. Nam elit magna, hendametincidunt ac, viva sed, nulla. Donec porta diam. Quisque diam lorem, interdum vitae, dapib.</p>
-        <address class="address">
-          <dl>
-            <dt></dt>
-            <dd>+1 959 603 6035</dd>
-          </dl>
-        </address>
-        <div class="copy">
-          <span class="tr">&copy;</span>
-          <span id="copyright-year"></span>
-          <span>UFO evidence.</span>
-          <a class="link2" href="index-6.html">Privacy Policy</a>
-        </div>
-      </div>
+
     </div>
   </div>
+</div>
+
 </div>
 
 
