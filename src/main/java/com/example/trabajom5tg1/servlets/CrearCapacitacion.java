@@ -1,5 +1,6 @@
 package com.example.trabajom5tg1.servlets;
 
+import com.example.trabajom5tg1.dao.CapacitacionDAOImp;
 import com.example.trabajom5tg1.models.Contenedor;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +55,8 @@ public class CrearCapacitacion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
 
-        int numCapacitacion = Integer.parseInt(request.getParameter("numCapacitacion")) ;
+        String nombre = request.getParameter("nombre") ;
+        String detalle = request.getParameter("detalle") ;
         String rutCliente = request.getParameter("rutCliente");
         String diaSemana = request.getParameter("diaSemana");
         String hora = request.getParameter("hora");
@@ -62,9 +65,10 @@ public class CrearCapacitacion extends HttpServlet {
         int cantAsistentes = Integer.parseInt(request.getParameter("cantAsistentes"));
 
 
-        Capacitacion cap = new Capacitacion( numCapacitacion,  rutCliente,  diaSemana,  hora,  lugar,  duracion,  cantAsistentes );
+        Capacitacion cap = new Capacitacion( nombre , detalle,  rutCliente,  diaSemana,  hora,  lugar,  duracion,  cantAsistentes );
 
-        HttpSession session = request.getSession();
+
+        /*HttpSession session = request.getSession();
         List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)session.getAttribute("listaCapacitacion");
         Contenedor ct = new Contenedor();
 
@@ -74,8 +78,23 @@ public class CrearCapacitacion extends HttpServlet {
         }
         ct.almacenarCapacitacion( cap );
 
-        session.setAttribute("listaCapacitacion" , ct.getListCapacitaciones());
-        response.sendRedirect("listar-capacitacion");
+        session.setAttribute("listaCapacitacion" , ct.getListCapacitaciones());*/
+
+        CapacitacionDAOImp capacitacionDao = new CapacitacionDAOImp();
+
+        PrintWriter out = response.getWriter();
+
+        if(capacitacionDao.registrar(cap)){
+
+            out.println("Capacitación registrada");
+            response.sendRedirect("listar-capacitacion");
+        }else{
+            out.println("Capacitación no registrada");
+            response.sendRedirect("crear-capacitacion");
+
+        }
+
+
 
         //request.setAttribute("seccion","capacitacion" );
         //request.setAttribute("respuesta", cap.mostrarDetalle() );

@@ -32,8 +32,12 @@
     <form action="crear-capacitacion" method="post">
 
       <div class="mb-3 col-3">
-        <label for="numCapacitacion" class="form-label">Número de Capacitación</label>
-        <input type="number" class="form-control" id="numCapacitacion" name="numCapacitacion" required>
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+      </div>
+      <div class="mb-3 col-3">
+        <label for="detalle" class="form-label">Detalle</label>
+        <textarea rows="4" class="form-control" id="detalle" name="detalle" required ></textarea>
       </div>
       <div class="mb-3 col-3">
         <label for="rutCliente" class="form-label">RUT Cliente</label>

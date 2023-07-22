@@ -11,9 +11,9 @@ public class Conexion {
         Connection con = null;
         String driver = "com.mysql.cj.jdbc.Driver";
 
-        String usuario ="root";
-        String password = "";
-        String url = "jdbc:mysql://localhost/sakila";
+        String usuario ="javadmin";
+        String password = "C0ntrasenna$Pul3nt4";
+        String url = "jdbc:mysql://149.50.130.78/prevencion_riesgos";
 
         try
         {

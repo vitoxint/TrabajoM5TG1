@@ -32,6 +32,7 @@
             <thead>
             <tr>
                 <th>N° Capacit.</th>
+                <th>Nombre</th>
                 <th>RUT Cliente</th>
                 <th>Día de la semana</th>
                 <th>Hora</th>
@@ -44,13 +45,14 @@
 
                 <%
 
-                    List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)session.getAttribute("listaCapacitacion");
+                    List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>)request.getAttribute("listaCapacitacion");
 
                     for(Capacitacion cap : capacitaciones)
                     {
                 %>
                     <tr>
                         <td><%= cap.getNumCapacitacion()  %></td>
+                        <td><%= cap.getNombre()  %></td>
                         <td><%= cap.getRutCliente()%></td>
                         <td><%= cap.getDiaSemana()%></td>
                         <td><%= cap.getHora()%></td>

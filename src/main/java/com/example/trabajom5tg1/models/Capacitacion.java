@@ -4,6 +4,8 @@ package com.example.trabajom5tg1.models;
 
 public class Capacitacion {
     private int numCapacitacion;
+    private String nombre;
+    private String detalle;
     private String rutCliente;
     private String diaSemana;
     private String hora;
@@ -14,14 +16,32 @@ public class Capacitacion {
     public Capacitacion() {
     }
 
-    public Capacitacion(int numCapacitacion, String rutCliente, String diaSemana, String hora, String lugar, String duracion, int cantAsistentes) {
-        this.numCapacitacion = numCapacitacion;
+    public Capacitacion(String nombre , String detalle , String rutCliente, String diaSemana, String hora, String lugar, String duracion, int cantAsistentes) {
+        this.nombre = nombre;
+        this.detalle = detalle;
         this.rutCliente = rutCliente;
         this.diaSemana = diaSemana;
         this.hora = hora;
         this.lugar = lugar;
         this.duracion = duracion;
         this.cantAsistentes = cantAsistentes;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
     public int getNumCapacitacion() {
