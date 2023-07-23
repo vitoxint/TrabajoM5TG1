@@ -1,4 +1,4 @@
-function validarRUT(rut) {
+function validaRUT(rut) {
     // Eliminar puntos y guiones
     rut = rut.replace(/[.-]/g, "");
 
@@ -27,4 +27,3 @@ function validarRUT(rut) {
 
     return dv === dvCalculado;
 }
-})

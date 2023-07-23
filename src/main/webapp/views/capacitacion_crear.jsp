@@ -29,7 +29,7 @@
     <br/>
 
 
-    <form action="crear-capacitacion" method="post">
+    <form action="crear-capacitacion" class="needs-validation" method="post">
 
       <div class="mb-3 col-3">
         <label for="nombre" class="form-label">Nombre</label>
@@ -37,7 +37,7 @@
       </div>
       <div class="mb-3 col-3">
         <label for="detalle" class="form-label">Detalle</label>
-        <textarea rows="4" class="form-control" id="detalle" name="detalle" required ></textarea>
+        <textarea rows="4" class="form-control" id="detalle" name="detalle" ></textarea>
       </div>
       <div class="mb-3 col-3">
         <label for="rutCliente" class="form-label">RUT Cliente</label>
@@ -45,7 +45,13 @@
       </div>
       <div class="mb-3 col-3">
         <label for="diaSemana" class="form-label">Día de la Semana</label>
-        <input type="text" class="form-control" id="diaSemana" name="diaSemana" required>
+        <select id="diaSemana" class="form-control" name="diaSemana" value="Lunes" required>
+          <option value="Lunes">Lunes</option>
+          <option value="Lunes">Martes</option>
+          <option value="Lunes">Miercoles</option>
+          <option value="Lunes">Jueves</option>
+          <option value="Lunes">Viernes</option>
+        </select>
       </div>
       <div class="mb-3 col-3">
         <label for="hora" class="form-label">Hora</label>
@@ -63,7 +69,7 @@
         <label for="cantAsistentes" class="form-label">Cantidad de Asistentes</label>
         <input type="number" class="form-control" id="cantAsistentes" name="cantAsistentes" required>
       </div>
-      <button type="submit" class="btn btn-primary btn-sm">Crear</button>
+      <button type="submit" class="btn btn-primary btn-sm disabled">Crear</button>
     </form>
 
     <br/>
@@ -84,13 +90,14 @@
 <%@include file="/views/layout/footer.jsp" %>
 
 
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validaRUT.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/validaCapacitacion.js"></script>
 </body>
 
