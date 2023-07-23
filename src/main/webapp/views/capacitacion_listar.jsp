@@ -1,6 +1,7 @@
 <%@ page import="com.example.trabajom5tg1.models.Capacitacion" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%--
   Created by IntelliJ IDEA.
   User: heckomher
   Date: 17-07-2023
