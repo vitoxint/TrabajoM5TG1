@@ -27,4 +27,3 @@ function validaRUT(rut) {
 
     return dv === dvCalculado;
 }
-})
