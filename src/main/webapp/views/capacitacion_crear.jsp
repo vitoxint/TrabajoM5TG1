@@ -29,7 +29,7 @@
     <br/>
 
 
-    <form action="crear-capacitacion" class="needs-validation" method="post">
+    <form action="crear-capacitacion" id="formulario" class="needs-validation" method="post">
 
       <div class="mb-3 col-3">
         <label for="nombre" class="form-label">Nombre</label>
@@ -41,21 +41,23 @@
       </div>
       <div class="mb-3 col-3">
         <label for="rutCliente" class="form-label">RUT Cliente</label>
-        <input type="text" class="form-control" id="rutCliente" name="rutCliente" required>
+        <input type="text" class="form-control" id="rutCliente" value="12.345.678-9" name="rutCliente" required>
+        <div class="invalid-feedback">Ingrese un RUT válido con formato 12.345.678-9</div>
       </div>
       <div class="mb-3 col-3">
         <label for="diaSemana" class="form-label">Día de la Semana</label>
         <select id="diaSemana" class="form-control" name="diaSemana" value="Lunes" required>
           <option value="Lunes">Lunes</option>
-          <option value="Lunes">Martes</option>
-          <option value="Lunes">Miercoles</option>
-          <option value="Lunes">Jueves</option>
-          <option value="Lunes">Viernes</option>
+          <option value="Martes">Martes</option>
+          <option value="Miercoles">Miercoles</option>
+          <option value="Jueves">Jueves</option>
+          <option value="Viernes">Viernes</option>
         </select>
       </div>
       <div class="mb-3 col-3">
         <label for="hora" class="form-label">Hora</label>
-        <input type="text" class="form-control" id="hora" name="hora" required>
+        <input type="text" class="form-control" id="hora" value="08:00" name="hora" required>
+        <div class="invalid-feedback">Ingrese una hora válida, ejemplo: 21:30</div>
       </div>
       <div class="mb-3 col-3">
         <label for="lugar" class="form-label">Lugar</label>
@@ -69,7 +71,7 @@
         <label for="cantAsistentes" class="form-label">Cantidad de Asistentes</label>
         <input type="number" class="form-control" id="cantAsistentes" name="cantAsistentes" required>
       </div>
-      <button type="submit" class="btn btn-primary btn-sm disabled">Crear</button>
+      <button type="submit" id="submit" class="btn btn-primary btn-sm disabled">Crear</button>
     </form>
 
     <br/>
@@ -102,3 +104,4 @@
 </body>
 
 </html>
+

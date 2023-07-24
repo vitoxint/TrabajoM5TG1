@@ -1,6 +1,7 @@
 package com.example.trabajom5tg1.controlador;
 
 import com.example.trabajom5tg1.dao.CapacitacionDAOImp;
+import com.example.trabajom5tg1.dao.UsuarioDAO;
 import com.example.trabajom5tg1.models.Capacitacion;
 import com.example.trabajom5tg1.models.Usuario;
 import jakarta.servlet.ServletException;
@@ -20,14 +21,14 @@ import java.util.List;
  * Servlet implementation class ListarCapacitacion
  */
 
-@WebServlet(name="listarCapacitacion" , value="/listar-capacitacion")
-public class ListarCapacitacion extends HttpServlet{
+@WebServlet(name="listarUsuario" , value="/listar-usuario")
+public class ListarUsuario extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListarCapacitacion() {
+    public ListarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,34 +47,22 @@ public class ListarCapacitacion extends HttpServlet{
 
         }else {
 
-            /*if (session.getAttribute("listaCapacitacion") == null) {
-                session.setAttribute("listaCapacitacion", new ArrayList<Capacitacion>());
-            }
-
-            Contenedor ct = new Contenedor();
-
-            List<Capacitacion> capacitaciones = (ArrayList<Capacitacion>) session.getAttribute("listaCapacitacion");
-
-            for (Capacitacion c : capacitaciones
-            ) {
-                ct.almacenarCapacitacion(c);
-            }*/
-
-            CapacitacionDAOImp capacitacionDAO = new CapacitacionDAOImp();
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
             PrintWriter out = response.getWriter();
 
-            List<Capacitacion> listado = capacitacionDAO.listarCapacitaciones();
+
+            List<Usuario> listado = usuarioDAO.listarUsuarios();
             if(!listado.isEmpty()){
-                out.println("Capacitaciones listadas");
-                request.setAttribute("listaCapacitacion",listado);
+                out.println("Usuarios listados");
+                request.setAttribute("listaUsuario",listado);
 
             }else{
-                request.setAttribute("listaCapacitacion",new ArrayList<Capacitacion>());
+                request.setAttribute("listaUsuario",new ArrayList<Usuario>());
             }
 
-            request.setAttribute("seccion", "capacitacion");
+            request.setAttribute("seccion", "usuarios");
 
-            getServletContext().getRequestDispatcher("/views/capacitacion_listar.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/views/usuario_listar.jsp").forward(request, response);
 
         }
     }
@@ -89,3 +78,4 @@ public class ListarCapacitacion extends HttpServlet{
 
 
 }
+

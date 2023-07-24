@@ -24,7 +24,7 @@
 <div class="container">
 
 
-    <div class="btn" onclick="window.location.href='UsuarioServlet'">Crear Usuario</div>
+    <!--<div class="btn" onclick="window.location.href='UsuarioServlet'">Crear Usuario</div>-->
 
 
     <footer class="footer mt-auto" data-bs-theme="dark" style="position:fixed; bottom: 0;">

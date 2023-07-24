@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
 
-        // continue the submit unbind preventDefault
+         // continue the submit unbind preventDefault
     })
 
     function validarCapacitacionBtn(){

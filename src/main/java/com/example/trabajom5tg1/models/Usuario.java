@@ -3,21 +3,22 @@ package com.example.trabajom5tg1.models;
 public class Usuario {
 
     // Atributos
+    private int id;
     private String nombre;
-    private int edad;
-    private String correoElectronico;
     private String nombreUsuario;
     private String contrasena;
+    private String tipoUsuario;
 
-    public Usuario(String nombre, int edad, String correoElectronico, String nombreUsuario, String contrasena) {
+
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String nombreUsuario, String contrasena, String tipoUsuario) {
         this.nombre = nombre;
-        this.edad = edad;
-        this.correoElectronico = correoElectronico;
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
-
-
-}
+        this.tipoUsuario = tipoUsuario;
+    }
 
     public String getNombre() {
         return nombre;
@@ -27,20 +28,20 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getId() {
+        return id;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getTipoUsuario() {
+        return tipoUsuario;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public String getNombreUsuario() {
@@ -61,8 +62,7 @@ public class Usuario {
 
     public void infoUsuario(){
     System.out.println("Nombre: " + this.nombre);
-    System.out.println("Edad: " + this.edad);
-    System.out.println("Correo Electronico: " + this.correoElectronico);
+    System.out.println("Tipo de Usuario: " + this.tipoUsuario);
     System.out.println("Nombre de Usuario: " + this.nombreUsuario);
 
     }

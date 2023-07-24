@@ -38,6 +38,16 @@
 
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  ${( seccion == 'usuarios') ? 'active' : 'none'}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin Usuarios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="listar-usuario">Listado Usuarios</a></li>
+                                <li><a class="dropdown-item" href="crear-usuario">Crear Usuario</a></li>
+
+                            </ul>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link ${( seccion == 'contacto') ? 'active' : 'none'}" href="contacto-servlet">Contacto</a>
