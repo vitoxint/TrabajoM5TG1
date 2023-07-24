@@ -1,4 +1,4 @@
-function validarRUT(rut) {
+function validaRUT(rut) {
     // Eliminar puntos y guiones
     rut = rut.replace(/[.-]/g, "");
 
