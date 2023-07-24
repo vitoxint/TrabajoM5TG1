@@ -1,8 +1,6 @@
-package com.example.trabajom5tg1.servlets;
+package com.example.trabajom5tg1.controlador;
 
 import com.example.trabajom5tg1.dao.CapacitacionDAOImp;
-import com.example.trabajom5tg1.models.Contenedor;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,8 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.example.trabajom5tg1.models.Capacitacion;
 import jakarta.servlet.http.HttpSession;

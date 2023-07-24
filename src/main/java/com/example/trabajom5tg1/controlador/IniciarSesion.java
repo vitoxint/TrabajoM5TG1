@@ -1,4 +1,4 @@
-package com.example.trabajom5tg1.servlets;
+package com.example.trabajom5tg1.controlador;
 
 import java.io.*;
 

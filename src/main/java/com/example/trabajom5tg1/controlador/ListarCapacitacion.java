@@ -1,10 +1,7 @@
-package com.example.trabajom5tg1.servlets;
+package com.example.trabajom5tg1.controlador;
 
 import com.example.trabajom5tg1.dao.CapacitacionDAOImp;
-import com.example.trabajom5tg1.idao.CapacitacionDAO;
 import com.example.trabajom5tg1.models.Capacitacion;
-import com.example.trabajom5tg1.models.Contenedor;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,8 +12,6 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import java.io.PrintWriter;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -69,7 +64,7 @@ public class ListarCapacitacion extends HttpServlet{
             if(!listado.isEmpty()){
                 out.println("Capacitaciones listadas");
                 request.setAttribute("listaCapacitacion",listado);
-                request.getRequestDispatcher("listado.jsp").forward(request,response);
+
             }
 
             request.setAttribute("seccion", "capacitacion");
