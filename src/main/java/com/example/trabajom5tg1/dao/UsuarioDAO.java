@@ -33,6 +33,7 @@ public class UsuarioDAO implements UsuarioIDAO {
                 "values ('"
                 +usuario.getNombre()+"','"
                 +usuario.getNombreUsuario()+"','"
+                +usuario.getContrasena()+"','"
                 +usuario.getTipoUsuario()+
 
                 "')";

@@ -1,7 +1,7 @@
 package com.example.trabajom5tg1.controlador;
 
-import com.example.trabajom5tg1.dao.CapacitacionDAOImp;
-import com.example.trabajom5tg1.dao.UsuarioDAO;
+import com.example.trabajom5tg1.dao.*;
+import com.example.trabajom5tg1.models.Administrativo;
 import com.example.trabajom5tg1.models.Cliente;
 import com.example.trabajom5tg1.models.Profesional;
 import com.example.trabajom5tg1.models.Usuario;
@@ -39,16 +39,18 @@ public class CrearUsuario extends HttpServlet {
             case "Cliente" :
                 String rut  = request.getParameter("rut");
                 String nombres  = request.getParameter("nombres");
+                String direccion  = request.getParameter("direccion");
                 String apellidos  = request.getParameter("apellidos");
                 int edad = Integer.parseInt(request.getParameter("edad"));
-                String direccion  = request.getParameter("direccion");
                 String comuna  = request.getParameter("comuna");
                 String telefono  = request.getParameter("telefono");
                 String afp  = request.getParameter("afp");
                 int sistemaSalud = Integer.parseInt(request.getParameter("sistemaSalud"));
 
-                Usuario cliente = new Cliente( nombre, nombreUsuario, contrasena, tipoUsuario , rut, nombres,  apellidos, telefono,  afp,  sistemaSalud,  direccion,  comuna,  edad  );
-                if(usuarioDAO.registrar(cliente)){
+                Cliente cliente = new Cliente( nombre, nombreUsuario, contrasena, tipoUsuario , rut, nombres,  apellidos, telefono,  afp,  sistemaSalud,  direccion,  comuna,  edad  );
+                ClienteDAO clienteDAO = new ClienteDAO();
+                if( usuarioDAO.registrar(cliente) && clienteDAO.registrar(cliente) ){
+
                     out.println("Usuario registrado");
                     response.sendRedirect("listar-usuario");
                 }else{
@@ -61,9 +63,9 @@ public class CrearUsuario extends HttpServlet {
             case "Profesional" :
                 String titulo = request.getParameter("titulo");
                 String fechaIngreso = request.getParameter("fechaIngreso");
-                Usuario profesional = new Profesional( nombre, nombreUsuario, contrasena, tipoUsuario , titulo , fechaIngreso );
-
-                if(usuarioDAO.registrar(profesional)){
+                Profesional profesional = new Profesional( nombre, nombreUsuario, contrasena, tipoUsuario , titulo , fechaIngreso );
+                ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+                if(usuarioDAO.registrar(profesional) && profesionalDAO.registrar(profesional)){
                     out.println("Usuario registrado");
                     response.sendRedirect("listar-usuario");
                 }else{
@@ -77,9 +79,9 @@ public class CrearUsuario extends HttpServlet {
 
                 String area = request.getParameter("area");
                 String experienciaPrevia = request.getParameter("experienciaPrevia");
-                Usuario administrativo = new Profesional( nombre, nombreUsuario, contrasena, tipoUsuario , area , experienciaPrevia );
-
-                if(usuarioDAO.registrar(administrativo)){
+                Administrativo administrativo = new Administrativo( nombre, nombreUsuario, contrasena, tipoUsuario , area , experienciaPrevia );
+                AdministrativoDAO administrativoDAO = new AdministrativoDAO();
+                if(usuarioDAO.registrar(administrativo) && administrativoDAO.registrar(administrativo) ){
                     out.println("Usuario registrado");
                     response.sendRedirect("listar-usuario");
                 }else{
