@@ -29,11 +29,12 @@ public class UsuarioDAO implements UsuarioIDAO {
         Connection con = null;
 
         String sql = "INSERT INTO Usuarios (" +
-                "  nombre , nombreUsuario , tipo ) " +
+                "  nombre , nombreUsuario , tipo , Pass ) " +
                 "values ('"
                 +usuario.getNombre()+"','"
                 +usuario.getNombreUsuario()+"','"
-                +usuario.getTipoUsuario()+
+                +usuario.getTipoUsuario()+"','"
+                +usuario.getContrasena()+
 
                 "')";
 
