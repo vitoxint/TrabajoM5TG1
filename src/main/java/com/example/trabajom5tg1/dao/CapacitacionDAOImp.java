@@ -1,7 +1,7 @@
 package com.example.trabajom5tg1.dao;
 
 import com.example.trabajom5tg1.conexion.Conexion;
-import com.example.trabajom5tg1.idao.CapacitacionDAO;
+import com.example.trabajom5tg1.idao.CapacitacionIDAO;
 import com.example.trabajom5tg1.models.Capacitacion;
 
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CapacitacionDAOImp implements CapacitacionDAO {
+public class CapacitacionDAOImp implements CapacitacionIDAO {
 
     @Override
     public boolean registrar(Capacitacion capacitacion) {

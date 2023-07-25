@@ -4,7 +4,7 @@ import com.example.trabajom5tg1.models.Capacitacion;
 
 import java.util.List;
 
-public interface CapacitacionDAO {
+public interface CapacitacionIDAO {
 
     public boolean registrar(Capacitacion capacitacion);
     public List<Capacitacion> listarCapacitaciones();
