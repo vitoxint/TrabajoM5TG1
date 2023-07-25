@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/src/database</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="prevencion_riesgos@149.50.130.78" uuid="11ec9fb5-9a35-4cb9-a218-d5d88a1ad6d4">
+    <data-source source="LOCAL" name="prevencion_riesgos@149.50.130.78" uuid="29646f20-4a0b-461f-9fba-4267abe3bf2f">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
