@@ -59,10 +59,10 @@ public class ListarCapacitacion extends HttpServlet{
                 ct.almacenarCapacitacion(c);
             }*/
 
-            CapacitacionDAOImp capacitacionDAO = new CapacitacionDAOImp();
+            CapacitacionDAOImp CapacitacionDAO = new CapacitacionDAOImp();
             PrintWriter out = response.getWriter();
 
-            List<Capacitacion> listado = capacitacionDAO.listarCapacitaciones();
+            List<Capacitacion> listado = CapacitacionDAO.listarCapacitaciones();
             if(!listado.isEmpty()){
                 out.println("Capacitaciones listadas");
                 request.setAttribute("listaCapacitacion",listado);
