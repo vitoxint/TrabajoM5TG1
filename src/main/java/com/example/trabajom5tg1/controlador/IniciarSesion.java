@@ -25,6 +25,7 @@ public class IniciarSesion extends HttpServlet {
         if (username.equals("admin") && password.equals("1234")) {
             request.getSession().setAttribute("user", username);
             request.getSession().setAttribute("loggedIn", true); // Bandera para indicar que el usuario ha iniciado sesión
+            request.getSession().setAttribute("privileges", "Administrativo"); // Bandera para indicar que el usuario es administrador
             response.sendRedirect(request.getContextPath() + "/contacto-servlet");
 
         } else {
