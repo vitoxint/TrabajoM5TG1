@@ -54,12 +54,38 @@
                         <% if (session.getAttribute("privileges") != null && session.getAttribute("privileges").equals("Administrativo")) { %>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle  ${(seccion == 'usuarios') ? 'active' : 'none'}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin Pagos
+                                Admin Chequeos
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="crear-pagos">Crear Pago</a></li>
-                                <li><a class="dropdown-item" href="listar-pagos">Listado Pagos</a></li>
-                                <li><a class="dropdown-item" href="reporte-pagos">Reporte Pagos</a></li>
+                                <li><a class="dropdown-item" href="listar-chequeo">Listado Chequeos</a></li>
+                                <li><a class="dropdown-item" href="crear-chequeo">Agregar Chequeo</a></li>
+                                <li><a class="dropdown-item" href="editar-chequeo">Editar Chequeo</a></li>
+                            </ul>
+                        </li>
+                        <% } %>
+
+                        <% if (session.getAttribute("privileges") != null && session.getAttribute("privileges").equals("Cliente")) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  ${(seccion == 'capacitacion') ? 'active' : 'none'}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin Asistentes
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="crear-asistente">Crear Asistente</a></li>
+                                <li><a class="dropdown-item" href="listado-asistentes">Listado Asistentes</a></li>
+                                <li><a class="dropdown-item" href="eliminar-asuistente">Eliminar Asistente</a></li>
+                            </ul>
+                        </li>
+                        <% } %>
+
+                        <% if (session.getAttribute("privileges") != null && session.getAttribute("privileges").equals("Cliente")) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  ${(seccion == 'capacitacion') ? 'active' : 'none'}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gestión Accidentes
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="registrar-accidente">Registrar Accidente</a></li>
+                                <li><a class="dropdown-item" href="listado-accidentes">Listado Accidentes</a></li>
+                                <li><a class="dropdown-item" href="editar-accidente">Editar Accidente</a></li>
                             </ul>
                         </li>
                         <% } %>
@@ -69,7 +95,11 @@
                             <a class="nav-link ${(seccion == 'contacto') ? 'active' : 'none'}" href="contacto-servlet">Contacto</a>
                         </li>
                     </ul>
+                    </ul>
                     <% } %>
+
+
+
 
                     <% if (session.getAttribute("privileges") != null && session.getAttribute("privileges").equals("Profesional")) { %>
                     <li class="nav-item dropdown">
@@ -93,7 +123,7 @@
                             <li><a class="dropdown-item" href="crear-visitas">Crear Visitas</a></li>
                             <li><a class="dropdown-item" href="listar-visitas">Listado Visitas</a></li>
                             <li><a class="dropdown-item" href="reporte-visitas">Reporte Visitas</a></li>
-                        </ul>
+                            </ul>
                     </li>
                     <% } %>
 
@@ -108,7 +138,7 @@
                         </li>
                         <% } else { %>
                         <li class="nav-item">
-                            <a class="nav-link ${(seccion == 'login') ? 'active' : 'none'}" href="login">Iniciar Sesión</a>
+                            <a class="nav-link ${(seccion == 'login') ? 'active' : 'none'}" href="login">Login</a>
                         </li>
                         <% } %>
                     </ul>

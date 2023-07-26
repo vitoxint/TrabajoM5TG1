@@ -33,7 +33,7 @@ public class Inicio extends HttpServlet {
 
         if ( session.getAttribute("loggedIn") == null ) {
             session.setAttribute("loggedIn", null);
-            response.sendRedirect("iniciar-sesion");
+            response.sendRedirect("login");
             return ;
         }
         request.setAttribute("seccion","inicio" );
