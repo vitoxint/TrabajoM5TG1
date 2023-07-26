@@ -11,5 +11,7 @@ public interface UsuarioIDAO {
     public boolean eliminar(Usuario usuario);
     public boolean modificar(Usuario usuario);
 
+    public Usuario editar( int id);
+
 
 }

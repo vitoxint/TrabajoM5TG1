@@ -36,6 +36,7 @@
             <th>Nombre</th>
             <th>Nombre de Usuario</th>
             <th>Tipo de usuario</th>
+            <th>Acción</th>
 
         </tr>
         </thead>
@@ -53,6 +54,7 @@
             <td><%= us.getNombre()  %></td>
             <td><%= us.getNombreUsuario()%></td>
             <td><%= us.getTipoUsuario()%></td>
+            <td><a class="btn btn-warning btn-sm" href="editar-usuario?id=<%=us.getId()%>">Editar</a> </td>
 
 
         </tr>

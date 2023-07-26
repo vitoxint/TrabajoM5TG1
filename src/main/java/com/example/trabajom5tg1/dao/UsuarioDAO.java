@@ -96,6 +96,50 @@ public class UsuarioDAO implements UsuarioIDAO {
     }
 
     @Override
+    public Usuario editar( int id ){
+        Statement stm = null;
+        Connection con = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT id , nombre , tipo , nombreUsuario from Usuarios where id = "+id+" limit 1 ;";
+
+        Usuario us = new Usuario();
+
+        try{
+            con = Conexion.conectar();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+
+            while(rs.next()){
+
+                us = new Usuario();
+
+                us.setId(rs.getInt(1));
+                us.setNombre(rs.getString(2));
+                us.setTipoUsuario(rs.getString(3));
+                us.setNombreUsuario(rs.getString(4));
+
+
+
+
+
+            }
+
+
+            rs.close();
+            stm.close();
+            con.close();
+
+        }catch (SQLException e) {
+            System.out.println("Error : clase UsuarioDAO en el método editar");
+            e.printStackTrace();
+            return null;
+        }
+
+        return us;
+    }
+
+    @Override
     public boolean eliminar(Usuario usuario) {
         return false;
     }
@@ -104,6 +148,7 @@ public class UsuarioDAO implements UsuarioIDAO {
     public boolean modificar(Usuario usuario) {
         return false;
     }
+
 
     // Método para guardar un nuevo usuario en la lista (simulando la inserción en la base de datos)
     /*public void insertarUsuario(Usuario usuario) {
