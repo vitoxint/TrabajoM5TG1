@@ -46,7 +46,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="listar-usuario">Listado Usuarios</a></li>
                                 <li><a class="dropdown-item" href="crear-usuario">Crear Usuario</a></li>
-                                <li><a class="dropdown-item" href="editar-usuario">Editar Usuario</a></li>
+
                             </ul>
                         </li>
                         <% } %>
