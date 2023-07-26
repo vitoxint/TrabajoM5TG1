@@ -101,7 +101,7 @@ public class UsuarioDAO implements UsuarioIDAO {
         Connection con = null;
         ResultSet rs = null;
 
-        String sql = "SELECT id , nombre , tipo , nombreUsuario from Usuarios where id = "+id+" limit 1 ;";
+        String sql = "SELECT id , nombre , tipo , nombreUsuario , password from Usuarios where id = "+id+" limit 1 ;";
 
         Usuario us = new Usuario();
 
@@ -118,10 +118,7 @@ public class UsuarioDAO implements UsuarioIDAO {
                 us.setNombre(rs.getString(2));
                 us.setTipoUsuario(rs.getString(3));
                 us.setNombreUsuario(rs.getString(4));
-
-
-
-
+                us.setContrasena(rs.getString(5));
 
             }
 

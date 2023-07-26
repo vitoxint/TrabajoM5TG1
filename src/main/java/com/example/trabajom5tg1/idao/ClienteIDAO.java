@@ -10,4 +10,5 @@ public interface ClienteIDAO {
     public List<Usuario> listarUsuarios();
     public boolean eliminar(Usuario usuario);
     public boolean modificar(Usuario usuario);
+    public Cliente editar( Usuario usuario );
 }

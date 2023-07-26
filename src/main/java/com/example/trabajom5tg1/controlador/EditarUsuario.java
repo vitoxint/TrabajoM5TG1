@@ -1,6 +1,12 @@
 package com.example.trabajom5tg1.controlador;
 
+import com.example.trabajom5tg1.dao.AdministrativoDAO;
+import com.example.trabajom5tg1.dao.ClienteDAO;
+import com.example.trabajom5tg1.dao.ProfesionalDAO;
 import com.example.trabajom5tg1.dao.UsuarioDAO;
+import com.example.trabajom5tg1.models.Administrativo;
+import com.example.trabajom5tg1.models.Cliente;
+import com.example.trabajom5tg1.models.Profesional;
 import com.example.trabajom5tg1.models.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -49,10 +55,39 @@ public class EditarUsuario extends HttpServlet{
             id = Integer.parseInt(request.getParameter("id"));
 
             UsuarioDAO usuarioDAO = new UsuarioDAO();
+            ClienteDAO clienteDAO = new ClienteDAO();
+            ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+            AdministrativoDAO administrativoDAO = new AdministrativoDAO();
 
             Usuario usuario = usuarioDAO.editar(id);
 
-            if(usuario != null){
+            if( usuario.getTipoUsuario().equals("Cliente")){
+                Cliente cliente = clienteDAO.editar(usuario);
+
+                request.setAttribute("tipo" , cliente.getTipoUsuario());
+                request.setAttribute("usuario", usuario);
+                request.setAttribute("cliente", cliente);
+                getServletContext().getRequestDispatcher("/views/usuario_editar.jsp").forward(request, response);
+            }
+            if( usuario.getTipoUsuario().equals("Profesional")){
+                Profesional profesional = profesionalDAO.editar(usuario);
+
+                request.setAttribute("tipo" , profesional.getTipoUsuario());
+                request.setAttribute("usuario", usuario);
+                request.setAttribute("profesional", profesional);
+                getServletContext().getRequestDispatcher("/views/usuario_editar.jsp").forward(request, response);
+            }
+            if( usuario.getTipoUsuario().equals("Administrativo")){
+               Administrativo administrativo = administrativoDAO.editar(usuario);
+
+                request.setAttribute("tipo" , administrativo.getTipoUsuario());
+                request.setAttribute("usuario", usuario);
+                request.setAttribute("administrativo", administrativo);
+                getServletContext().getRequestDispatcher("/views/usuario_editar.jsp").forward(request, response);
+            }
+
+
+            if( usuario != null ){
                 request.setAttribute("usuario", usuario);
                 getServletContext().getRequestDispatcher("/views/usuario_editar.jsp").forward(request, response);
             }
