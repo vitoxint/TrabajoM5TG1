@@ -1,4 +1,7 @@
-<%@ page import="com.example.trabajom5tg1.models.Usuario" %><%--
+<%@ page import="com.example.trabajom5tg1.models.Usuario" %>
+<%@ page import="com.example.trabajom5tg1.models.Cliente" %>
+<%@ page import="com.example.trabajom5tg1.models.Profesional" %>
+<%@ page import="com.example.trabajom5tg1.models.Administrativo" %><%--
   Created by IntelliJ IDEA.
   User: Joaquin
   Date: 22/7/2023
@@ -29,7 +32,18 @@
         <br/>
 
         <%
+
             Usuario usuario = (Usuario) request.getAttribute("usuario");
+
+
+                    Cliente cliente = (Cliente) request.getAttribute("cliente");
+
+                    Profesional profesional = (Profesional) request.getAttribute("profesional");
+
+                    Administrativo administrativo = (Administrativo) request.getAttribute("administrativo");
+
+
+
         %>
 
         <form action="actualizar-usuario" id="formulario" class="needs-validation" method="post">
@@ -68,51 +82,51 @@
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="rut" class="form-label">RUT Cliente</label>
-                        <input type="text" class="form-control" id="rut" value="12.345.678-9" name="rut" >
+                        <input type="text" class="form-control" id="rut" value="<%= cliente.getRut() %>" name="rut" >
                         <div class="invalid-feedback">Ingrese un RUT válido con formato 12.345.678-9</div>
                     </div>
                     <div class="mb-3 col-12 col-md-4">
                         <label for="edad" class="form-label">Edad</label>
-                        <input type="number" class="form-control" id="edad"  name="edad">
+                        <input type="number" class="form-control" id="edad" value="<%= cliente.getEdad() %>"  name="edad">
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="nombres" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="nombres"  name="nombres">
+                        <input type="text" class="form-control" id="nombres" value="<%= cliente.getNombres() %>"  name="nombres">
                     </div>
                     <div class="mb-3 col-12 col-md-4">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="apellidos"  name="apellidos">
+                        <input type="text" class="form-control" id="apellidos" value="<%= cliente.getApellidos() %>"  name="apellidos">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion"  name="direccion">
+                        <input type="text" class="form-control" id="direccion" value="<%= cliente.getApellidos() %>"  name="direccion">
                     </div>
                     <div class="mb-3 col-12 col-md-4">
                         <label for="comuna" class="form-label">Comuna</label>
-                        <input type="text" class="form-control" id="comuna"  name="comuna">
+                        <input type="text" class="form-control" id="comuna" value="<%= cliente.getComuna() %>"  name="comuna">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono"  name="telefono">
+                        <input type="text" class="form-control" id="telefono" value="<%= cliente.getTelefono() %>"  name="telefono">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="afp" class="form-label">AFP</label>
-                        <input type="text" class="form-control" id="afp"  name="afp">
+                        <input type="text" class="form-control" id="afp" value="<%= cliente.getAfp() %>"  name="afp">
                     </div>
                     <div class="mb-3 col-12 col-md-4">
                         <label for="sistemaSalud" class="form-label">Sistema salud</label>
                         <select class="form-control" id="sistemaSalud"  name="sistemaSalud">
-                            <option value="1">FONASA</option>
-                            <option value="2">ISAPRE</option>
+                            <option value="1" <%if(cliente.getSistemaSalud() == 1){%> selected <%}%>>FONASA</option>
+                            <option value="2" <%if(cliente.getSistemaSalud() == 1){%> selected <%}%>>ISAPRE</option>
 
                         </select>
                     </div>
@@ -126,13 +140,13 @@
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="titulo" class="form-label">Título</label>
-                        <input type="text" class="form-control" id="titulo"  name="titulo">
+                        <input type="text" class="form-control" id="titulo" value="<%= profesional.getTitulo() %>" name="titulo">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="fechaIngreso" class="form-label">Fecha Ingreso</label>
-                        <input type="date" class="form-control" id="fechaIngreso"  name="fechaIngreso">
+                        <input type="date" class="form-control" id="fechaIngreso" value="<%= profesional.getFechaIngreso() %>"  name="fechaIngreso">
                     </div>
                 </div>
             </div>
@@ -143,13 +157,13 @@
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="area" class="form-label">Área</label>
-                        <input type="text" class="form-control" id="area"  name="area">
+                        <input type="text" class="form-control" id="area" value="<%= administrativo.getArea() %>"  name="area">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-12 col-md-4">
                         <label for="experienciaPrevia" class="form-label">Experiencia Previa</label>
-                        <input type="text" class="form-control" id="experienciaPrevia"  name="experienciaPrevia">
+                        <input type="text" class="form-control" id="experienciaPrevia" value="<%= administrativo.getExperienciaPrevia() %>"  name="experienciaPrevia">
                     </div>
                 </div>
             </div>

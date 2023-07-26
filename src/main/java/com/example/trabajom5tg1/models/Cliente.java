@@ -26,6 +26,9 @@ package com.example.trabajom5tg1.models;
          * @param comuna comuna del cliente
          * @param edad edad del cliente
          */
+        public Cliente(){
+
+        }
         public Cliente(String nombre, String nombreUsuario, String contrasena , String tipoUsuario, String rut, String nombres, String apellidos, String telefono, String afp, int sistemaSalud, String direccion, String comuna, int edad) {
             super(nombre, nombreUsuario, contrasena , tipoUsuario);
             this.rut = rut;

@@ -12,5 +12,6 @@ public interface AdministrativoIDAO {
     public List<Usuario> listarUsuarios();
     public boolean eliminar(Usuario usuario);
     public boolean modificar(Usuario usuario);
+    public Administrativo editar( Usuario usuario );
 
 }
