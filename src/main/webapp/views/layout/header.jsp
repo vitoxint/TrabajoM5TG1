@@ -108,7 +108,7 @@
                         </li>
                         <% } else { %>
                         <li class="nav-item">
-                            <a class="nav-link ${(seccion == 'login') ? 'active' : 'none'}" href="iniciar-sesion">Iniciar Sesión</a>
+                            <a class="nav-link ${(seccion == 'login') ? 'active' : 'none'}" href="login">Iniciar Sesión</a>
                         </li>
                         <% } %>
                     </ul>
