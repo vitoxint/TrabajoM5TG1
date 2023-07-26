@@ -8,6 +8,7 @@ public class Usuario {
     private String nombreUsuario;
     private String contrasena;
     private String tipoUsuario;
+    private String privileges;
 
 
     public Usuario() {
@@ -18,6 +19,7 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.tipoUsuario = tipoUsuario;
+        this.privileges = privileges;
     }
 
     public String getNombre() {
