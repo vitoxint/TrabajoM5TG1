@@ -98,9 +98,6 @@
                     </ul>
                     <% } %>
 
-
-
-
                     <% if (session.getAttribute("privileges") != null && session.getAttribute("privileges").equals("Profesional")) { %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle  ${(seccion == 'usuarios') ? 'active' : 'none'}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
