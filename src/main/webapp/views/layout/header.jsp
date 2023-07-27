@@ -64,6 +64,20 @@
                         </li>
                         <% } %>
 
+                        <% if (session.getAttribute("privileges") != null && session.getAttribute("privileges").equals("Administrativo")) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  ${(seccion == 'usuarios') ? 'active' : 'none'}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin Pagos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="crear-pago">Crear Pago</a></li>
+                                <li><a class="dropdown-item" href="listado-pago">Listado Pago</a></li>
+                                <li><a class="dropdown-item" href="editar-pago">Editar Pago</a></li>
+
+                            </ul>
+                        </li>
+                        <% } %>
+
                         <% if (session.getAttribute("privileges") != null && session.getAttribute("privileges").equals("Cliente")) { %>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle  ${(seccion == 'capacitacion') ? 'active' : 'none'}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
