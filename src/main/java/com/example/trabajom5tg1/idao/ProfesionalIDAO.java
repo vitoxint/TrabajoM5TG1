@@ -11,6 +11,6 @@ public interface ProfesionalIDAO {
     public boolean registrar(Profesional usuario);
     public List<Usuario> listarUsuarios();
     public boolean eliminar(Usuario usuario);
-    public boolean modificar(Usuario usuario);
+    public boolean modificar(Profesional usuario);
     public Profesional editar( Usuario usuario );
 }

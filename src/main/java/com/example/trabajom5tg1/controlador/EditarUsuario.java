@@ -28,6 +28,7 @@ import java.util.List;
 public class EditarUsuario extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
+    private final UsuarioDAO usuarioDAO = new UsuarioDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -101,6 +102,75 @@ public class EditarUsuario extends HttpServlet{
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nombre = request.getParameter("nombre");
+        String nombreUsuario = request.getParameter("nombreUsuario");
+        String contrasena  = request.getParameter("contrasena");
+        String tipoUsuario =   request.getParameter("tipo");
+
+
+        PrintWriter out = response.getWriter();
+        out.println("Tipo" + tipoUsuario);
+
+        switch( tipoUsuario ){
+            case "Cliente" :
+                String rut  = request.getParameter("rut");
+                String nombres  = request.getParameter("nombres");
+                String direccion  = request.getParameter("direccion");
+                String apellidos  = request.getParameter("apellidos");
+                int edad = Integer.parseInt(request.getParameter("edad"));
+                String comuna  = request.getParameter("comuna");
+                String telefono  = request.getParameter("telefono");
+                String afp  = request.getParameter("afp");
+                int sistemaSalud = Integer.parseInt(request.getParameter("sistemaSalud"));
+
+                Cliente cliente = new Cliente( nombre, nombreUsuario, contrasena, tipoUsuario , rut, nombres,  apellidos, telefono,  afp,  sistemaSalud,  direccion,  comuna,  edad  );
+                cliente.setId(id);
+                ClienteDAO clienteDAO = new ClienteDAO();
+                if( /*usuarioDAO.modificar(cliente) &&*/ clienteDAO.modificar(cliente) ){
+
+                    out.println("Usuario actualizado");
+                    response.sendRedirect("listar-usuario");
+                }else{
+                    out.println("Usuario no actualizado");
+                    response.sendRedirect("crear-usuario");
+
+                }
+                break;
+
+            case "Profesional" :
+                String titulo = request.getParameter("titulo");
+                String fechaIngreso = request.getParameter("fechaIngreso");
+                Profesional profesional = new Profesional( nombre, nombreUsuario, contrasena, tipoUsuario , titulo , fechaIngreso );
+                ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+                if( profesionalDAO.modificar(profesional)){
+                    out.println("Usuario actualizado");
+                    response.sendRedirect("listar-usuario");
+                }else{
+                    out.println("Usuario no actualizado");
+                    response.sendRedirect("crear-usuario");
+
+                }
+                break;
+
+            case "Administrativo" :
+
+                String area = request.getParameter("area");
+                String experienciaPrevia = request.getParameter("experienciaPrevia");
+                Administrativo administrativo = new Administrativo( nombre, nombreUsuario, contrasena, tipoUsuario , area , experienciaPrevia );
+                AdministrativoDAO administrativoDAO = new AdministrativoDAO();
+                if( administrativoDAO.modificar(administrativo) ){
+                    out.println("Usuario actualizado");
+                    response.sendRedirect("listar-usuario");
+                }else{
+                    out.println("Usuario no actualizado");
+                    response.sendRedirect("crear-usuario");
+
+                }
+                break;
+
+        }
 
 
     }

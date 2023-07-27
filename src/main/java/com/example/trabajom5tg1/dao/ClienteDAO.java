@@ -115,7 +115,44 @@ public class ClienteDAO implements ClienteIDAO {
     }
 
     @Override
-    public boolean modificar(Usuario usuario) {
-        return false;
+    public boolean modificar(Cliente usuario){
+        boolean registrar = false;
+        Statement stm = null;
+        Connection con = null;
+
+        String sql = "UPDATE Usuarios " +
+                "SET nombre = '" + usuario.getNombre() +"', "+
+                "password = '" + usuario.getContrasena() +"' "+
+                "where id = " + usuario.getId() + " ; ";
+
+        String sql2 = "UPDATE Clientes SET " +
+
+                "rut = '"+ usuario.getRut()+"', "+
+                "edad = "+ usuario.getEdad()+", "+
+                "nombres ='"+usuario.getNombres()+"', "+
+                "apellidos ='" +usuario.getApellidos()+"', "+
+                "direccion = '" +usuario.getDireccion()+"', "+
+                "comuna ='" +usuario.getComuna()+"', "+
+                "telefono = '"+usuario.getTelefono()+"', "+
+                "afp= '" +usuario.getAfp()+ "', "+
+                "salud = " + usuario.getSistemaSalud() +
+                " where username = '"+ usuario.getNombreUsuario()+"';";
+
+        System.out.println( usuario.getSistemaSalud() );
+
+        try{
+            con = Conexion.conectar();
+            stm = con.createStatement();
+            stm.execute(sql2);
+            stm.execute(sql);
+            registrar = true;
+            stm.close();
+            con.close();
+
+        }catch (SQLException e) {
+            System.out.println("Error : clase UsuarioDAO en el método actualizar");
+            e.printStackTrace();
+        }
+        return registrar;
     }
 }

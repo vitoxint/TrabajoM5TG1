@@ -99,8 +99,38 @@ public class AdministrativoDAO  implements AdministrativoIDAO {
     }
 
     @Override
-    public boolean modificar(Usuario usuario) {
-        return false;
+    public boolean modificar(Administrativo usuario) {
+        boolean registrar = false;
+        Statement stm = null;
+        Connection con = null;
+
+        String sql = "UPDATE Usuarios " +
+                "SET nombre = '" + usuario.getNombre() +"', "+
+                "password = '" + usuario.getContrasena() +"' "+
+                "where id = " + usuario.getId() + " ; ";
+
+        String sql2 = "UPDATE Administrativos SET " +
+
+                "area = '"+ usuario.getArea()+"', "+
+                "experiencia_previa = '"+ usuario.getExperienciaPrevia()+"' "+
+                " where username = '"+ usuario.getNombreUsuario()+"';";
+
+
+
+        try{
+            con = Conexion.conectar();
+            stm = con.createStatement();
+            stm.execute(sql2);
+            stm.execute(sql);
+            registrar = true;
+            stm.close();
+            con.close();
+
+        }catch (SQLException e) {
+            System.out.println("Error : clase AdministrativoDAO en el método actualizar");
+            e.printStackTrace();
+        }
+        return registrar;
     }
 }
 

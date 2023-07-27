@@ -46,19 +46,20 @@
 
         %>
 
-        <form action="actualizar-usuario" id="formulario" class="needs-validation" method="post">
+        <form action="editar-usuario" id="formulario" class="needs-validation" method="post">
             <div class="row">
                 <div class="mb-3 col-12 col-md-4">
                     <label for="nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" value="<%= usuario.getNombre() %>" required>
                 </div>
             </div>
+            <input type="number" hidden="true" name="id" value="<%= usuario.getId() %>"/>
 
             <div class="row">
 
                 <div class="mb-3 col-12 col-md-4">
                     <label for="nombreUsuario" class="form-label">Nombre de Usuario (inicio sesión):</label>
-                    <input type="text" class="form-control" id="nombreUsuario" disabled name="nombreUsuario" value="<%= usuario.getNombreUsuario() %>" required>
+                    <input type="text" class="form-control" id="nombreUsuario"  name="nombreUsuario" value="<%= usuario.getNombreUsuario() %>" readonly="readonly" required>
                 </div>
             </div>
             <div class="row">
@@ -69,11 +70,12 @@
                 <div class="mb-3 col-12 col-md-4">
 
                     <label for="tipo" class="form-label">Tipo de usuario:</label>
-                    <select class="form-control" id="tipo" name="tipo" disabled required>
+                    <!--<select class="form-control" id="tipo" name="tipo" readonly="readonly" required>
                         <option value="Cliente" <%if(usuario.getTipoUsuario().equals("Cliente")){%> selected <%}%>>Cliente</option>
                         <option value="Profesional" <%if(usuario.getTipoUsuario().equals("Profesional")){%> selected <%}%>>Profesional</option>
                         <option value="Administrativo" <%if(usuario.getTipoUsuario().equals("Administrativo")){%> selected <%}%>>Administrativo</option>
-                    </select>
+                    </select>-->
+                    <input type="text" class="form-control" id="tipo" name="tipo" value="<%= usuario.getTipoUsuario() %>" readonly="readonly" required>
                 </div>
             </div>
 
@@ -126,7 +128,7 @@
                         <label for="sistemaSalud" class="form-label">Sistema salud</label>
                         <select class="form-control" id="sistemaSalud"  name="sistemaSalud">
                             <option value="1" <%if(cliente.getSistemaSalud() == 1){%> selected <%}%>>FONASA</option>
-                            <option value="2" <%if(cliente.getSistemaSalud() == 1){%> selected <%}%>>ISAPRE</option>
+                            <option value="2" <%if(cliente.getSistemaSalud() == 2){%> selected <%}%>>ISAPRE</option>
 
                         </select>
                     </div>

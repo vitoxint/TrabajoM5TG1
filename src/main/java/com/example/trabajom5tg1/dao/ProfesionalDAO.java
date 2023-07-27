@@ -89,8 +89,38 @@ public class ProfesionalDAO implements ProfesionalIDAO {
     }
 
     @Override
-    public boolean modificar(Usuario usuario) {
-        return false;
+    public boolean modificar(Profesional usuario) {
+        boolean registrar = false;
+        Statement stm = null;
+        Connection con = null;
+
+        String sql = "UPDATE Usuarios " +
+                "SET nombre = '" + usuario.getNombre() +"', "+
+                "password = '" + usuario.getContrasena() +"' "+
+                "where id = " + usuario.getId() + " ; ";
+
+        String sql2 = "UPDATE Profesionales SET " +
+
+                "titulo= '"+ usuario.getTitulo()+"', "+
+                "fecha_ingreso = '"+ usuario.getFechaIngreso()+"' "+
+                " where username = '"+ usuario.getNombreUsuario()+"';";
+
+
+
+        try{
+            con = Conexion.conectar();
+            stm = con.createStatement();
+            stm.execute(sql2);
+            stm.execute(sql);
+            registrar = true;
+            stm.close();
+            con.close();
+
+        }catch (SQLException e) {
+            System.out.println("Error : clase ProfesionalDAO en el método actualizar");
+            e.printStackTrace();
+        }
+        return registrar;
     }
 
     @Override

@@ -9,6 +9,6 @@ public interface ClienteIDAO {
     public boolean registrar(Cliente usuario);
     public List<Usuario> listarUsuarios();
     public boolean eliminar(Usuario usuario);
-    public boolean modificar(Usuario usuario);
+    public boolean modificar(Cliente usuario);
     public Cliente editar( Usuario usuario );
 }
