@@ -1,6 +1,7 @@
 package com.example.trabajom5tg1.controlador;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -55,6 +56,13 @@ public class ContactoServlet extends HttpServlet {
                         "      <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\n" +
                         "    </div>" );
         //response.getWriter().write(");
+        PrintWriter out = response.getWriter();
+        out.println("Información del contacto :" );
+        out.println("Nombre : " + nombre  );
+        out.println("Correo :" + request.getParameter("email") );
+        out.println("Detalle : " + request.getParameter("detalle") );
+
+
         RequestDispatcher rd = request.getRequestDispatcher("/views/contacto.jsp" );
         rd.forward(request, response);
     }
