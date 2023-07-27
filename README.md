@@ -81,13 +81,13 @@ Se proporciona un listado de los accidentes registrador junto con sus detalles.
 
 #### 3.- Ejecutar el servidor local y acceder al proyecto desde el navegador utilizando la URL proporcionada por el servidor.
 
-#### 4.- En la página de inicio del portal, se monstrarán las opciones y enlaces correspondientes según el rol de usuario con el que se haya iniciado sesión.
+#### 4.- En la página de inicio del portal, se mostrarán las opciones y enlaces correspondientes según el rol de usuario con el que se haya iniciado sesión.
 
 #### 5.- Navegar y probar las diferentes funcionalidades de la página y asegurarse de probar las restricciones de acceso según los privilegios de cada usuario.
 
 #### 6.- Aunque el proyecto se encuentra conectado a un servidor remoto en la nube, se recomienda descargar el archivo prevencion_riesgos.sql y ejecutarlo en un servidor de base de datos local para evitar problemas de conexión.
 
-#### 8.- Una vez creada la base de datos, se debe modificar el archivo ConnectionDB.java ubicado en la carpeta src/main/java/com/example/trabajom5tg1/conexion/Conexion.java y modificar los datos de conexión a la base de datos de acuerdo a los datos de conexión de su servidor local.
+#### 8.- Una vez creada la base de datos, se debe modificar el archivo Connexion.java ubicado en la carpeta src/main/java/com/example/trabajom5tg1/conexion/ y modificar los datos de conexión a la base de datos de acuerdo a los datos de conexión de su servidor local.
 
 # ////////////////////////////////////////////////////////////////////////
 
